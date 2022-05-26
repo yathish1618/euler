@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-const ChangeTypes = require(path.normalize('mathsteps/lib/ChangeTypes'));
-const factor = require(path.normalize('mathsteps/lib/factor'));
-const simplifyExpression = require(path.normalize('mathsteps/lib/simplifyExpression'));
-const solveEquation = require(path.normalize('mathsteps/lib/solveEquation'));
+const ChangeTypes = require(path.join(__dirname, '../mathsteps/lib/ChangeTypes'));
+const factor = require(path.join(__dirname, '../mathsteps/lib/factor'));
+const simplifyExpression = require(path.join(__dirname, '../mathsteps/lib/simplifyExpression'));
+const solveEquation = require(path.join(__dirname, '../mathsteps/lib/solveEquation'));
 
 module.exports = {
   factor,
