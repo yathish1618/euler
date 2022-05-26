@@ -1,0 +1,26 @@
+table(border='1',style="width:100%")
+    style(type="text/css").
+        table {
+            text-align: center; 
+            vertical-align: middle;
+        } 
+    thead
+        tr
+            th Simplify an Algebraic Expression
+            th Solve an Algebraic Equation
+    tbody
+        tr
+            td
+              form(method="POST", action="/simplify")
+                p
+                  label(for="input_expression") <br />
+                  textarea#input_expression(name="input_expression",rows="10",cols="50")
+                p
+                  input(type="submit", value="Simplify")
+            td 
+              form(method="POST", action="/solve")
+                p
+                  label(for="input_expression") <br />
+                  textarea#input_expression(name="input_expression",rows="10",cols="50")
+                p
+                  input(type="submit", value="Solve")

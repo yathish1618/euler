@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  div(style='text-align: center;')
+    a(href="euler")
+      button(type="button") Try another
+  br
+  p(style='text-align: center;').
+    Given expression is `#{expression}`
+  br 
+  p(style='text-align: center;').
+    Solution:
+  br
+  
+  table(border='1',align='center')
+    style(type="text/css").
+        table {
+            text-align: center; 
+            vertical-align: middle;
+        } 
+    thead
+        tr
+            th Step No.
+            th Step
+            th Explanation
+            th Number of substeps
+    tbody
+        each step, i in steps
+            tr(id='step_'+i)
+                td #{i}
+                td(style='padding: 10px;') `#{step.newNode.toString()}`
+                td(style='padding: 10px;') #{step.changeType}
+                if step.substeps.length>0
+                    td
+                        a #{step.substeps.length}   
+                        a(href="javascript:void(0)", 
+                            id = 'expand_collapse_#{i}'
+                            onclick="expand_collapse(#{i},this.innerText)") [Show]
+                else
+                    td #{step.substeps.length}
+                
+                each substep, j in step.substeps
+                    tr(style='color:blue;display:none',class='substep_of_step_'+i)
+                        td #{j}
+                        td(style='padding: 10px;') `#{substep.newNode.toString()}`
+                        td(style='padding: 10px;') #{substep.changeType}
+                        td #{substep.substeps.length}
